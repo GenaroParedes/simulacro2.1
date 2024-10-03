@@ -1,0 +1,26 @@
+Genero | Cantidad de tracks por genero 
+Rock , 1297 
+Jazz , 130 
+Metal , 374 
+Alternative & Punk , 332 
+Rock And Roll , 12 
+Blues , 81 
+Latin , 579 
+Reggae , 58 
+Pop , 48 
+Soundtrack , 43 
+Bossa Nova , 15 
+Easy Listening , 24 
+Heavy Metal , 28 
+R&B/Soul , 61 
+Electronica/Dance , 30 
+World , 28 
+Hip Hop/Rap , 35 
+Science Fiction , 13 
+TV Shows , 93 
+Sci Fi & Fantasy , 26 
+Drama , 64 
+Comedy , 17 
+Alternative , 40 
+Classical , 74 
+Opera , 1 
