@@ -53,7 +53,6 @@ public class Artist {
     public String toString() {
         return "Artist{" +
                 "name='" + name + '\'' +
-                ", id=" + id +
                 '}';
     }
 

@@ -39,7 +39,6 @@ public class MediaType {
     @Override
     public String toString() {
         return "MediaType{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }

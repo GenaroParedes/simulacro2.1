@@ -53,7 +53,6 @@ public class Composer {
     public String toString() {
         return "Composer{" +
                 "name='" + name + '\'' +
-                ", id=" + id +
                 '}';
     }
 

@@ -1,7 +1,9 @@
 package utn.frc.bda;
 
+import utn.frc.bda.entities.Album;
 import utn.frc.bda.entities.Genre;
 import utn.frc.bda.entities.Track;
+import utn.frc.bda.repositories.TrackRepository;
 import utn.frc.bda.services.ArchivoCSVService;
 import utn.frc.bda.services.LoadToDBService;
 
@@ -12,6 +14,7 @@ import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import static java.lang.String.format;
@@ -71,9 +74,44 @@ public class Main
             throw new RuntimeException(e);
         }
 
-        //Requerimiento 6
+        //Requerimiento 4
+        List<Album> albums = tracks.stream()
+                            .map(track -> track.getAlbum())//Obtengo el objeto Album
+                            .distinct()//verifico que sea distinto
+                            .sorted(Comparator.comparing(Album::getName))//ordenado por nombre de Album
+                            .toList(); //retorno la lista
+
+        System.out.println("Album | Cantidad tracks | Duracion total album");
+        for ( Album album : albums ){
+            System.out.printf("%s | %d | %s \n",
+                                album.getName(),
+                                album.getTracks().size(),
+                                album.getDuracionTotal());
+        }
+
+
+        //Requerimiento 5
         //serviceDB.addAll(tracks);
 
+        //Consultas a DB
+        //Consulta de todos los tracks
+        TrackRepository trackRepository = new TrackRepository();
+        //List<Track> tracksDb = trackRepository.findAll();
+
+        //Track trackById = trackRepository.findById(7);
+
+
+        //Consulta de tracks por album
+        //List<Track> tracksByAlbum = trackRepository.findByAlbum("For Those About To Rock We Salute You");
+        //tracksByAlbum.forEach(System.out::println);
+
+        //Consulta de tracks por Genre
+        /*List<Track> tracksByGenre = trackRepository.findByGenre("Blues");
+        tracksByGenre.forEach(System.out::println);*/
+
+        //Consulta de tracks por Artista
+        List<Track> tracksByArtist = trackRepository.findByArtist("AC/DC");
+        tracksByArtist.forEach(System.out::println);
     }
 
 

@@ -63,7 +63,6 @@ public class Album {
     @Override
     public String toString() {
         return "Album{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", totalMiliseconds=" + totalMiliseconds +
                 '}';
@@ -87,5 +86,14 @@ public class Album {
             this.tracks = new ArrayList<>();
         }
         this.tracks.add(track);
+    }
+
+    public String getDuracionTotal() {
+        int totalMiliseconds = getTotalMiliseconds();
+        int horas = totalMiliseconds / 3600000;
+        int minutos = (totalMiliseconds % 3600000) / 60000;
+        int segundos = (totalMiliseconds % 60000) / 1000;
+        int miliseconds = totalMiliseconds % 1000;
+        return String.format("%dhs : %dmin : %dseg : %dms", horas, minutos, segundos, miliseconds);
     }
 }
